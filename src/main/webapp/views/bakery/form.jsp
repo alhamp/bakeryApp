@@ -1,5 +1,20 @@
+<%@page import="com.launchacademy.bakery.*"%>
+
+<%  BakeryOrder bakeryOrder = (BakeryOrder)request.getAttribute("bakeryOrder");%>
 
 <h1>Bakery Form</h1>
+
+<% if(request.getAttribute("bakeryOrder") != null){ %>
+
+  <h2><strong> Welcome: <%= bakeryOrder.getUserName() %></strong></h2>
+
+  <a href="/bakeries/cancel"> Not Me </a>
+  <br>
+
+<%}
+else{ %>
+<p>Make a new order</p>
+<%}%>
 
 <form action="/bakeries" method="POST">
   <div>
